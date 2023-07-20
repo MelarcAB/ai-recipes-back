@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Http\Requests\Auth\RegisterRequest;
 
 use App\Http\Resources\User\UserResource;
+use App\Http\Resources\Auth\UserLoginResource;
 
 class AuthController extends Controller
 {
@@ -57,6 +58,7 @@ class AuthController extends Controller
 
         return response()->json([
             'token' => $token,
+            'user' => new UserLoginResource(auth()->user()),
         ], 200);
     }
 }
