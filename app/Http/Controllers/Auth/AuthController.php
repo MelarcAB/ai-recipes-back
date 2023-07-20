@@ -61,4 +61,45 @@ class AuthController extends Controller
             'user' => new UserLoginResource(auth()->user()),
         ], 200);
     }
+
+    //logout
+    public function logout(Request $request)
+    {
+        try {
+            //logout del jwt
+            auth()->logout();
+            return response()->json([
+                'message' => '¡Sesión cerrada correctamente!',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => '¡Error al cerrar sesión!',
+            ], 409);
+        }
+    }
+
+
+    //setOpenaiToken
+    public function setOpenaiToken(Request $request)
+    {
+        try {
+            //validar token
+            $request->validate([
+                //string nullable
+                'open_ai_token' => 'nullable|string|max:255',
+            ]);
+            $user = $request->user();
+            $user->open_ai_token = $request->open_ai_token;
+            $user->save();
+
+            return response()->json([
+                'message' => '¡Token guardado correctamente!',
+                'user' => new UserResource($user),
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => '¡Error on save!',
+            ], 409);
+        }
+    }
 }
