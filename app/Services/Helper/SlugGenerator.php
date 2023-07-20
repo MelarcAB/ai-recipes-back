@@ -14,7 +14,8 @@ class SlugGenerator
 
         while ($modelClass::where('slug', $slug)->exists()) {
             $suffix++;
-            $slug = Str::slug($name) . '-' . $suffix;
+            $hash = substr(md5($slug), 0, 7);
+            $slug = Str::slug($name) . '-' . $suffix .  $hash;
         }
 
         return $slug;

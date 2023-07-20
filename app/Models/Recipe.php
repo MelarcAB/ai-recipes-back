@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Resources\Recipe\RecipeResource;
 //user
 use App\Models\User;
+//ingredients
+use App\Models\Ingredients;
 
 class Recipe extends Model
 {
@@ -59,5 +61,10 @@ class Recipe extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function ingredients()
+    {
+        return $this->belongsToMany(Ingredients::class, 'ingredients_recipe', 'recipe_id', 'ingredient_id');
     }
 }

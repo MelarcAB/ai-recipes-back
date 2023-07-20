@@ -10,6 +10,9 @@ class Ingredients extends Model
     use HasFactory;
 
 
+    //table name
+    protected $table = 'ingredients';
+
     //usar slug en vez de id en la url
     public function getRouteKeyName()
     {
