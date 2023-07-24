@@ -53,6 +53,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => '¡Credenciales incorrectas!',
+                ''
             ], 401);
         }
 

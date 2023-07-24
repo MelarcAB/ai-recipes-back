@@ -469,12 +469,14 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pechuga de pollo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Chicken breast'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/03/13/5e997e247257a.jpeg'
         ]);
         Ingredients::create([
             'name' => 'Beef steak',
             'name_es' => 'Filete de res',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Beef steak'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://carnesideal.tienda/cdn/shop/products/RES29-1_2e60392a-c394-4760-9b0c-ffbeabf9a554.jpg?v=1627841606'
         ]);
 
         Ingredients::create([
@@ -482,6 +484,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Chuleta de cerdo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Pork chop'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://grupoaripin.com/wp-content/uploads/2021/02/5f1756e75228e526107117.jpg'
         ]);
 
         Ingredients::create([
@@ -489,6 +492,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Costillas de cordero',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Lamb rack'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://www.gastronomiavasca.net/uploads/image/file/3520/w700_costillar_de_cordero.jpg'
         ]);
 
         Ingredients::create([
@@ -496,6 +500,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Carne molida de res',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Ground beef'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://avicolayuri.com/wp-content/uploads/2022/03/Carne-molida-2.jpg'
         ]);
 
         Ingredients::create([
@@ -503,6 +508,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pechuga de pavo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Turkey breast'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://aliciatabernero.com/wp-content/uploads/2022/11/Pechuga-de-Pavo-1.jpg'
         ]);
 
         Ingredients::create([
@@ -510,6 +516,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Tocino',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Bacon'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://www.gastronomiavasca.net/uploads/image/file/3278/bacon.jpg'
         ]);
 
         Ingredients::create([
@@ -517,6 +524,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Salchicha',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Sausage'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://llenatudespensa.com/salchicha-frankfurt-con-tripa-natural_Id-5844.jpg'
         ]);
 
         Ingredients::create([
@@ -524,6 +532,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Jamón Serrano',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Jamón Serrano'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://s1.eestatic.com/2019/12/03/ciencia/nutricion/jamon-ocu_organizacion_de_consumidores_y_usuarios-nutricion_449217087_139553074_1706x960.jpg'
         ]);
 
         Ingredients::create([
@@ -531,6 +540,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Jamón Cocido',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Jamón Cocido'),
             'ingredient_type_id' => $ingredient_type_meat->id,
+            'image' => 'https://estaticos-cdn.elperiodico.com/clip/31a47a14-f8d1-4afb-8d81-c5a4695d5b71_alta-libre-aspect-ratio_default_0.jpg'
         ]);
     }
 
@@ -546,6 +556,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Zanahoria',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Carrot'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://soycomocomo.es/media/2019/03/zanahorias.jpg'
         ]);
 
         Ingredients::create([
@@ -553,6 +564,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Brócoli',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Broccoli'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://elpoderdelconsumidor.org/wp-content/uploads/2016/11/brocoli.jpg'
         ]);
 
         Ingredients::create([
@@ -560,6 +572,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Espinaca',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Spinach'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://biotrendies.com/wp-content/uploads/2015/07/espinaca.jpg'
         ]);
 
         Ingredients::create([
@@ -567,6 +580,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Tomate',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Tomato'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://www.lovemysalad.com/sites/default/files/styles/image_530x397/public/tomates_-_vladimir_morozov.jpg?itok=XeDbLwfM'
         ]);
 
         Ingredients::create([
@@ -574,6 +588,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pepino',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cucumber'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201811/26/00118109100018____2__600x600.jpg'
         ]);
 
         Ingredients::create([
@@ -581,6 +596,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pimiento',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Bell Pepper'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://hortamar.es/wp-content/uploads/pimiento-california-hortamar-1.jpg'
         ]);
 
         Ingredients::create([
@@ -588,6 +604,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cebolla',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Onion'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://www.citrusgourmet.com/es/206-thickbox_default/saco-de-cebollas-12-kg.jpg'
         ]);
 
         Ingredients::create([
@@ -595,6 +612,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Lechuga',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Lettuce'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://biotrendies.com/wp-content/uploads/2015/07/lechuga.jpg'
         ]);
 
         Ingredients::create([
@@ -602,13 +620,15 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Calabacín',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Zucchini'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://www.gastronomiavasca.net/uploads/image/file/3331/w700_calabacin.jpg'
         ]);
 
         Ingredients::create([
             'name' => 'Potato',
-            'name_es' => 'Papa',
+            'name_es' => 'Patata',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Potato'),
             'ingredient_type_id' => $ingredient_type_vegetables->id,
+            'image' => 'https://clinicacisem.com/wp-content/uploads/2019/04/patatas.jpg'
         ]);
     }
 
@@ -624,6 +644,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Manzana',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Apple'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
         ]);
         // Crear ingredientes de fruta
         Ingredients::create([
@@ -631,6 +652,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Plátano',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Banana'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
         ]);
 
         Ingredients::create([
@@ -638,6 +660,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Naranja',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Orange'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://images.unsplash.com/photo-1609424572698-04d9d2e04954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
         ]);
 
         Ingredients::create([
@@ -645,6 +668,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Fresa',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Strawberry'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://images.unsplash.com/photo-1568966299181-bb7282cc84f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
         ]);
 
         Ingredients::create([
@@ -652,6 +676,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Uvas',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Grapes'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://frutasolivar.com/wp-content/uploads/2020/05/40010140_s.jpg'
         ]);
 
         Ingredients::create([
@@ -673,6 +698,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Mango',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Mango'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg'
         ]);
 
         Ingredients::create([
@@ -680,6 +706,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Kiwi',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Kiwi'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://www.frutas-hortalizas.com/img/fruites_verdures/presentacio/14.jpg'
         ]);
 
         Ingredients::create([
@@ -687,6 +714,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pera',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Pear'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://i.redd.it/guillem-the-frutem-v0-qfq1fd14koaa1.jpg?width=1802&format=pjpg&auto=webp&s=4e511b8bad599752debd397fe259888916f4496b'
+
         ]);
 
         Ingredients::create([
@@ -694,6 +723,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cereza',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cherry'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => ''
+
         ]);
     }
 }
