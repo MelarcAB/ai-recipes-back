@@ -19,6 +19,13 @@ return new class extends Migration
             //user_id
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            //text steps
+            $table->text('steps')->nullable();
+            //text ingredients
+            $table->text('instructions')->nullable();
+
+            //string
+
             //slug
             $table->string('slug')->unique();
             //soft delete

@@ -78,6 +78,11 @@ class RecipeController extends Controller
         $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
 
         $response = $open_service->callGpt($prompt);
+        //validar si response es json
+        return response(
+            $response,
+            200
+        )->header('Content-Type', 'application/json');
 
         return response()->json([
             'message' => '¡Receta generada correctamente!',
