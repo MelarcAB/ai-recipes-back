@@ -21,7 +21,7 @@ class OpenAiService
     }
 
 
-    public static function callGpt($prompt = "")
+    public static function callGpt($prompt = "", $instructions = "")
     {
         $open_ai = new OpenAi(env('OPEN_AI_KEY'));
         $chat = $open_ai->chat([
@@ -29,7 +29,7 @@ class OpenAiService
             'messages' => [
                 [
                     "role" => "system",
-                    "content" => "Eres un asistente que genera recetas de cocina saludables a partir de los ingredientes que recibes."
+                    "content" => $instructions ? $instructions : "Eres un asistente que genera recetas de cocina saludables a partir de los ingredientes que recibes."
                 ],
                 [
                     "role" => "user",
@@ -37,7 +37,7 @@ class OpenAiService
                 ],
             ],
             'temperature' => 1.0,
-            'max_tokens' => 4000,
+            'max_tokens' => 6000,
             'frequency_penalty' => 0,
             'presence_penalty' => 0,
         ]);

@@ -15,6 +15,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('recipes', 'App\Http\Controllers\RecipeController')->middleware('auth:api');
 Route::resource('ingredients', 'App\Http\Controllers\IngredientsController')->middleware('auth:api');
 
+//recipecontroller post generateRecipe
+Route::post('generate-recipe', 'App\Http\Controllers\RecipeController@generateRecipe')->middleware('auth:api');
+
+
 Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
 Route::post('login', 'App\Http\Controllers\Auth\AuthController@login');
 Route::post('logout', 'App\Http\Controllers\Auth\AuthController@logout')->middleware('auth:api');

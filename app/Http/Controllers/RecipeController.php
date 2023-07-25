@@ -16,6 +16,8 @@ use App\Models\User;
 //ingredients
 use App\Models\Ingredients;
 
+use App\Services\OpenAiService;
+
 class RecipeController extends Controller
 {
 
@@ -50,6 +52,32 @@ class RecipeController extends Controller
                 'error' => $e->getMessage(),
             ], 404);
         }
+    }
+
+
+
+    function generateRecipe(Request $request)
+    {
+        //validaciones
+
+        $user = $request->user();
+        $ingredients = $request->ingredients;
+        //preparar prompt
+        $ingredients_list = "";
+        foreach ($ingredients as $ingredient) {
+            $ingredients_list .= $ingredient['name'] . ", ";
+        }
+
+        $open_service = new OpenAiService();
+        $recipe_type = "saludable";
+        $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
+
+        $response = $open_service->callGpt($prompt);
+
+        return response()->json([
+            'message' => '¡Receta generada correctamente!',
+            'recipe' => $response,
+        ], 200);
     }
 
 
