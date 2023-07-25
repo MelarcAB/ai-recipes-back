@@ -21,11 +21,11 @@ class OpenAiService
     }
 
 
-    public static function callGpt($prompt = "", $instructions = "")
+    public  function callGpt($prompt = "", $instructions = "")
     {
         $open_ai = new OpenAi(env('OPEN_AI_KEY'));
         $chat = $open_ai->chat([
-            'model' => 'gpt-3.5-turbo',
+            'model' =>  $this->model,
             'messages' => [
                 [
                     "role" => "system",
@@ -37,7 +37,7 @@ class OpenAiService
                 ],
             ],
             'temperature' => 1.0,
-            'max_tokens' => 6000,
+            'max_tokens' => 15000,
             'frequency_penalty' => 0,
             'presence_penalty' => 0,
         ]);

@@ -58,11 +58,16 @@ class RecipeController extends Controller
 
     function generateRecipe(Request $request)
     {
-        //validaciones
+        // Validaciones
 
         $user = $request->user();
         $ingredients = $request->ingredients;
-        //preparar prompt
+        //convertir a array
+        $ingredients = ($ingredients);
+
+
+
+        // Preparar prompt
         $ingredients_list = "";
         foreach ($ingredients as $ingredient) {
             $ingredients_list .= $ingredient['name'] . ", ";
@@ -77,8 +82,11 @@ class RecipeController extends Controller
         return response()->json([
             'message' => '¡Receta generada correctamente!',
             'recipe' => $response,
+            'ingredients' => $ingredients,
         ], 200);
     }
+
+
 
 
     public function show(Request $request, $slug)
