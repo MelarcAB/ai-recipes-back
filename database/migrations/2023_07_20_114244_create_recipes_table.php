@@ -23,7 +23,8 @@ return new class extends Migration
             $table->text('steps')->nullable();
             //text ingredients
             $table->text('instructions')->nullable();
-
+            //cantidades quantity
+            $table->string('quantity')->nullable();
             //string
 
             //slug

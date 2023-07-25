@@ -58,37 +58,62 @@ class RecipeController extends Controller
 
     function generateRecipe(Request $request)
     {
-        // Validaciones
+        try {
+            // Validaciones
 
-        $user = $request->user();
-        $ingredients = $request->ingredients;
-        //convertir a array
-        $ingredients = ($ingredients);
+            $user = $request->user();
+            $ingredients = $request->ingredients;
+            //convertir a array
+            $ingredients = ($ingredients);
 
 
 
-        // Preparar prompt
-        $ingredients_list = "";
-        foreach ($ingredients as $ingredient) {
-            $ingredients_list .= $ingredient['name'] . ", ";
+            // Preparar prompt
+            $ingredients_list = "";
+            foreach ($ingredients as $ingredient) {
+                $ingredients_list .= $ingredient['name'] . ", ";
+            }
+
+            $open_service = new OpenAiService();
+            $recipe_type = "saludable";
+            $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
+
+            $response = $open_service->callGpt($prompt);
+            //validar si response es json
+            $response = json_decode($response, true);
+            //validar si response tiene name, nutritional_values, ingredients, instructions
+            if (!isset($response['name']) || !isset($response['nutritional_values']) || !isset($response['ingredients']) || !isset($response['instructions'])) {
+                return response()->json([
+                    'message' => '¡Error generando receta!',
+                    'error' => '¡Error generando receta!',
+                ], 409);
+            }
+
+            //guardar receta
+            $recipe = new Recipe();
+            $recipe->user_id = $user->id;
+            $recipe->name = $response['name'];
+            $recipe->slug = SlugGenerator::generateUniqueSlug(Recipe::class, $recipe->name);
+            //pasar instrucciones a string
+            $recipe->steps = json_encode($response['instructions']);
+            //quantity
+            $recipe->quantity = $response['ingredients'];
+
+            //save
+            $recipe->save();
+
+
+            return response()->json([
+                'message' => '¡Receta generada correctamente!',
+                'recipe' => $response,
+                'ingredients' => $ingredients,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => '¡Error al intentar generar la receta!',
+                'error' => $e->getMessage(),
+            ], 409);
         }
-
-        $open_service = new OpenAiService();
-        $recipe_type = "saludable";
-        $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
-
-        $response = $open_service->callGpt($prompt);
-        //validar si response es json
-        return response(
-            $response,
-            200
-        )->header('Content-Type', 'application/json');
-
-        return response()->json([
-            'message' => '¡Receta generada correctamente!',
-            'recipe' => $response,
-            'ingredients' => $ingredients,
-        ], 200);
     }
 
 
