@@ -106,7 +106,7 @@ class RecipeController extends Controller
             //asignar ingredientes
             foreach ($ingredients as $ingredient) {
                 try {
-                    $ingredient = Ingredients::where('name_es', $ingredient['name'])->firstOrFail();
+                    $ingredient = Ingredients::where('name', $ingredient['name'])->firstOrFail();
                     $recipe->ingredients()->attach($ingredient->id);
                 } catch (\Exception $e) {
                     continue;
