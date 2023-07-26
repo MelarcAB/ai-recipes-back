@@ -19,9 +19,8 @@ class RecipeResource extends JsonResource
         return [
             'slug' => $this->slug,
             'name' => $this->name,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'ingredients' => IngredientResource::collection($this->ingredients),
+            'steps' => $this->steps,
+            'quantity' => $this->quantity,
         ];
     }
 }

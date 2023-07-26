@@ -30,7 +30,8 @@ class Tests extends Command
         $this->info('Testing OpenAiService');
 
         //test
-        $ejecucion = OpenAiService::callGpt('2 panes, 1 tomate, 4 lechuga, atun');
+        $openai = new OpenAiService();
+        $ejecucion = $openai->callGpt('2 panes, 1 tomate, 4 lechuga, atun');
 
         //info del array
         $this->info('Array: ' . $ejecucion);

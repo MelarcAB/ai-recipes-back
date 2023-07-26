@@ -30,13 +30,13 @@ class OpenAiService
         }
 
         if ($instructions == "") {
-            $instructions = "Eres un asistente que  genera recetas de cocina en formato JSON a partir de los ingredientes que recibes.";
-            $instructions .= "RESPONDES COMPLETAMENTE en formato JSON con los keys 'name','nutritional_values', 'ingredients' y 'instructions'. Intructions debe ser extenso y detallado.";
-            $instructions .= "El key 'nutritional_values' y 'instructions' deben ser array.";
-            $instructions .= "El key 'ingredients' será un string con cantidades.";
-            $instructions .= "El key 'nutritional_values' será un array con valores nutricionales totales.";
-            $instructions .= "Ejemplo: {'name':'...','nutritional_values': ['calories'=>...,'proteins'=>...,'carbohydrates'=>...,'fats'=>...] , 'instructions': [{'step': '...'}]}";
-            // $instructions .= "Tipo de receta: GRASIENTA y simple. Alrededor de 800calorias. Tus respuestas en formato JSON completamente.";
+            $instructions = "Eres un asistente que genera recetas de cocina en formato JSON.";
+            $instructions .= "Debes responder en formato JSON con los keys \"name\", \"nutritional_values\", \"ingredients\" y \"instructions\".";
+            $instructions .= "El key \"nutritional_values\" y \"instructions\" deben ser arrays.";
+            $instructions .= "El key \"ingredients\" será un string con las cantidades.";
+            $instructions .= "El key \"nutritional_values\" será un array con los valores nutricionales totales.";
+            $instructions .= "Ejemplo: {\"name\":\"...\",\"nutritional_values\":{\"calories\":...,\"proteins\":...,\"carbohydrates\":...,\"fats\":...},\"instructions\":[{\"step\":\"...\"}]}";
+            $instructions .= "Que no sea: Estofado de pollo y ternera con setas o al horno";
         }
 
 
@@ -61,7 +61,9 @@ class OpenAiService
 
         // Get Content
         $response = (json_decode($chat)->choices[0]->message->content);
-        //llegara en formato json, convertir a array
+        //Puede que haya texto antes de la respuesta json, por lo que se debe eliminar antes de decodificar
+        $response = substr($response, strpos($response, "{"));
+
 
         return $response;
     }

@@ -45,7 +45,11 @@ class RecipeController extends Controller
 
             // sync ingredients with the recipe
             $recipe->ingredients()->sync($ingredients->pluck('id')->toArray());
-            return RecipeResource::make($recipe);
+            //return json
+            return response()->json([
+                'message' => '¡Receta creada correctamente!',
+                'recipe' => new RecipeResource($recipe),
+            ], 201);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Error on save!',
@@ -63,10 +67,6 @@ class RecipeController extends Controller
 
             $user = $request->user();
             $ingredients = $request->ingredients;
-            //convertir a array
-            $ingredients = ($ingredients);
-
-
 
             // Preparar prompt
             $ingredients_list = "";
@@ -79,8 +79,9 @@ class RecipeController extends Controller
             $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
 
             $response = $open_service->callGpt($prompt);
-            //validar si response es json
+            //pasar de string a json
             $response = json_decode($response, true);
+
             //validar si response tiene name, nutritional_values, ingredients, instructions
             if (!isset($response['name']) || !isset($response['nutritional_values']) || !isset($response['ingredients']) || !isset($response['instructions'])) {
                 return response()->json([
@@ -101,6 +102,18 @@ class RecipeController extends Controller
 
             //save
             $recipe->save();
+
+            //asignar ingredientes
+            foreach ($ingredients as $ingredient) {
+                try {
+                    $ingredient = Ingredients::where('name_es', $ingredient['name'])->firstOrFail();
+                    $recipe->ingredients()->attach($ingredient->id);
+                } catch (\Exception $e) {
+                    continue;
+                }
+            }
+
+
 
 
             return response()->json([
