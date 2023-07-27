@@ -36,7 +36,7 @@ class OpenAiService
             $instructions .= "El key \"ingredients\" será un string con las cantidades.";
             $instructions .= "El key \"nutritional_values\" será un array con los valores nutricionales totales.";
             $instructions .= "Ejemplo: {\"name\":\"...\",\"nutritional_values\":{\"calories\":...,\"proteins\":...,\"carbohydrates\":...,\"fats\":...},\"instructions\":[{\"step\":\"...\"}]}";
-            $instructions .= "Que no sea: Estofado de pollo y ternera con setas o al horno";
+            //$instructions .= "Que no sea: Estofado de pollo y ternera con setas o al horno";
         }
 
 
