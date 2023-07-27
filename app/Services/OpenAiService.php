@@ -4,14 +4,15 @@
 namespace App\Services;
 
 use Orhanerday\OpenAi\OpenAi;
-
+//log
+use Illuminate\Support\Facades\Log;
 
 class OpenAiService
 {
 
     private $model = "gpt-3.5-turbo-16k";
 
-    private $temperature = 0.7;
+    private $temperature = 1;
 
     private $open_ai_key = "";
 
@@ -30,16 +31,17 @@ class OpenAiService
         }
 
         if ($instructions == "") {
-            $instructions = "Eres un asistente que genera recetas de cocina en formato JSON.";
+            $instructions = "Eres un asistente español que genera recetas de cocina en formato JSON.";
             $instructions .= "Debes responder en formato JSON con los keys \"name\", \"nutritional_values\", \"ingredients\" y \"instructions\".";
             $instructions .= "El key \"nutritional_values\" y \"instructions\" deben ser arrays.";
             $instructions .= "El key \"ingredients\" será un string con las cantidades.";
             $instructions .= "El key \"nutritional_values\" será un array con los valores nutricionales totales.";
             $instructions .= "Ejemplo: {\"name\":\"...\",\"nutritional_values\":{\"calories\":...,\"proteins\":...,\"carbohydrates\":...,\"fats\":...},\"instructions\":[{\"step\":\"...\"}]}";
-            //$instructions .= "Que no sea: Estofado de pollo y ternera con setas o al horno";
+            $instructions .= "Puedes algunos o todos los elementos que te pasen.";
         }
 
-
+        //log prompt into channel custom
+        Log::channel('custom')->info($prompt);
         $chat = $open_ai->chat([
             'model' =>  $this->model,
             'messages' => [

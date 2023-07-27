@@ -25,8 +25,8 @@ class RecipeController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        //recetas del usuario
-        return (RecipeResource::collection($user->recipes));
+        //recetas del usuario ordenadas por fecha de creacion descendente
+        return (RecipeResource::collection($user->recipes->sortByDesc('created_at')));
     }
 
     public function store(RecipeStoreRequest $request)

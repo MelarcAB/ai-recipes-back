@@ -25,4 +25,13 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:8',
         ];
     }
+
+
+    //custom messages
+    public function messages(): array
+    {
+        return [
+            'password.required' => 'La contraseña es requerida',
+        ];
+    }
 }
