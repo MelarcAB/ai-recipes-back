@@ -66,6 +66,15 @@ class RecipeController extends Controller
             // Validaciones
 
             $user = $request->user();
+
+            //validar si el usuario tiene token de openai
+            if (!$user->open_ai_token) {
+                return response()->json([
+                    'message' => "¡No se puede generar la receta porque el usuario no tiene token de OpenAI!",
+                    'error' => "¡No se puede generar la receta porque el usuario no tiene token de OpenAI!"
+                ], 409);
+            }
+
             $ingredients = $request->ingredients;
 
             // Preparar prompt
@@ -95,12 +104,9 @@ class RecipeController extends Controller
             $recipe->user_id = $user->id;
             $recipe->name = $response['name'];
             $recipe->slug = SlugGenerator::generateUniqueSlug(Recipe::class, $recipe->name);
-            //pasar instrucciones a string
             $recipe->steps = json_encode($response['instructions']);
-            //quantity
             $recipe->quantity = $response['ingredients'];
 
-            //save
             $recipe->save();
 
             //asignar ingredientes
@@ -112,9 +118,6 @@ class RecipeController extends Controller
                     continue;
                 }
             }
-
-
-
 
             return response()->json([
                 'message' => '¡Receta generada correctamente!',
