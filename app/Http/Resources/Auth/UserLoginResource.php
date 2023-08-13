@@ -18,6 +18,7 @@ class UserLoginResource extends JsonResource
         return [
             'name' => $this->name,
             'email' => $this->email,
+            'open_ai_token' => $this->open_ai_token ? $this->true : false,
 
         ];
     }
