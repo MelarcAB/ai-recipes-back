@@ -31,9 +31,11 @@ class Tests extends Command
 
         //test
         $openai = new OpenAiService();
-        $ejecucion = $openai->callGpt('2 panes, 1 tomate, 4 lechuga, atun');
+        $ejecucion = $openai->callDalle('plato de pollo con verduras');
+        //string to json
 
-        //info del array
-        $this->info('Array: ' . $ejecucion);
+
+
+        var_dump($ejecucion);
     }
 }

@@ -19,8 +19,9 @@ class RecipeResource extends JsonResource
         return [
             'slug' => $this->slug,
             'name' => $this->name,
-            'steps' => $this->steps,
+            'steps' => json_decode($this->steps, true),
             'quantity' => $this->quantity,
+            'image' => $this->image,
         ];
     }
 }

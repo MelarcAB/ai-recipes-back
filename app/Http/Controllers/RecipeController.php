@@ -75,6 +75,8 @@ class RecipeController extends Controller
                 ], 409);
             }
 
+            $token_openai = $user->open_ai_token;
+
             $ingredients = $request->ingredients;
 
             // Preparar prompt
@@ -83,7 +85,7 @@ class RecipeController extends Controller
                 $ingredients_list .= $ingredient['name'] . ", ";
             }
 
-            $open_service = new OpenAiService();
+            $open_service = new OpenAiService($token_openai);
             $recipe_type = "saludable";
             $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
 
@@ -119,9 +121,20 @@ class RecipeController extends Controller
                 }
             }
 
+            //intentar generar imagen
+            $image = $open_service->callDalle($recipe->name);
+
+            if ($image) {
+                $recipe->image = $image;
+                $recipe->save();
+            }
+
+
+
+
             return response()->json([
                 'message' => '¡Receta generada correctamente!',
-                'recipe' => $response,
+                'recipe' => new RecipeResource($recipe),
                 'ingredients' => $ingredients,
             ], 200);
         } catch (\Exception $e) {

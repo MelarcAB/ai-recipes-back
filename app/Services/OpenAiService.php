@@ -37,6 +37,7 @@ class OpenAiService
                 $instructions = "Eres un asistente español que genera recetas de cocina en formato JSON.";
                 $instructions .= "Debes responder en formato JSON con los keys \"name\", \"nutritional_values\", \"ingredients\" y \"instructions\".";
                 $instructions .= "El key \"nutritional_values\" y \"instructions\" deben ser arrays.";
+                $instructions .= "El key \"instructions\" deben ser detallista y explicativo.";
                 $instructions .= "El key \"ingredients\" será un string con las cantidades.";
                 $instructions .= "El key \"nutritional_values\" será un array con los valores nutricionales totales.";
                 $instructions .= "Ejemplo: {\"name\":\"...\",\"nutritional_values\":{\"calories\":...,\"proteins\":...,\"carbohydrates\":...,\"fats\":...},\"instructions\":[{\"step\":\"...\"}]}";
@@ -77,6 +78,33 @@ class OpenAiService
                 'message' => '¡Error al crear el usuario!',
                 'error' => $e->getMessage(),
             ], 409);
+        }
+    }
+
+
+    public function callDalle($prompt = "")
+    {
+        try {
+            if ($prompt == "") {
+                return json_encode([
+                    'message' => '¡Error al crear la imagen!',
+                    'error' => '¡Error al crear la imagen!',
+                ], 409);
+            }
+            $open_ai = new OpenAi(env('OPEN_AI_KEY'));
+            $complete = $open_ai->image([
+                "prompt" => $prompt,
+                "n" => 1,
+                "size" => "256x256",
+                "response_format" => "url",
+            ]);
+
+            $complete = json_decode($complete);
+
+
+            return $complete->data[0]->url;
+        } catch (\Exception $e) {
+            return "";
         }
     }
 }
