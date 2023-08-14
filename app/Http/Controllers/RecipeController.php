@@ -17,6 +17,10 @@ use App\Models\User;
 use App\Models\Ingredients;
 
 use App\Services\OpenAiService;
+//logs
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use GuzzleHttp\Client;
 
 class RecipeController extends Controller
 {
@@ -120,14 +124,27 @@ class RecipeController extends Controller
                     continue;
                 }
             }
+            try {
+                //generar la imagen, guardarla en el servidor y guardar la ruta en la receta
+                $image = $open_service->callDalle($recipe->name);
+                if ($image) {
+                    $client = new Client();
+                    $response = $client->get($image);
 
-            //intentar generar imagen
-            $image = $open_service->callDalle($recipe->name);
+                    if ($response->getStatusCode() == 200) {
+                        $filename = 'images/' . ($recipe->slug) . '_' . time() . '.jpg';
+                        // Usa el sistema de archivos de Laravel para guardar la imagen en el disco 'public'
+                        Storage::disk('public')->put($filename, $response->getBody());
 
-            if ($image) {
-                $recipe->image = $image;
-                $recipe->save();
+                        // Actualiza la propiedad 'image' del objeto $recipe
+                        $recipe->image = 'storage/' . $filename;
+                    }
+                    $recipe->save();
+                }
+            } catch (\Exception $e) {
+                Log::error($e->getMessage());
             }
+
 
 
 

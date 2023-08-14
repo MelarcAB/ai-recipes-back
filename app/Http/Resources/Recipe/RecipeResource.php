@@ -21,7 +21,7 @@ class RecipeResource extends JsonResource
             'name' => $this->name,
             'steps' => json_decode($this->steps, true),
             'quantity' => $this->quantity,
-            'image' => $this->image,
+            'image' => asset($this->image),
         ];
     }
 }
