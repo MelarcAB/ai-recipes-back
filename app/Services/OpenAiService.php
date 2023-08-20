@@ -24,7 +24,7 @@ class OpenAiService
     }
 
 
-    public  function callGpt($prompt = "", $instructions = "")
+    public  function callGpt($prompt = "", $params = [], $instructions = "")
     {
         try {
             $open_ai = new OpenAi(env('OPEN_AI_KEY'));
@@ -41,8 +41,42 @@ class OpenAiService
                 $instructions .= "El key \"ingredients\" será un string con las cantidades.";
                 $instructions .= "El key \"nutritional_values\" será un array con los valores nutricionales totales.";
                 $instructions .= "Ejemplo: {\"name\":\"...\",\"nutritional_values\":{\"calories\":...,\"proteins\":...,\"carbohydrates\":...,\"fats\":...},\"instructions\":[{\"step\":\"...\"}]}";
-                $instructions .= "Puedes usar algunos o todos los elementos que te pasen.";
+                $instructions .= "Usa algunos o todos los ingredientes que te digan.";
             }
+            if (isset($params['tipo'])) {
+                //comida saludable, casera, rapida
+                switch ($params['tipo']) {
+                    case 'saludable':
+                        $prompt .= "Receta saludable.";
+                        break;
+                    case 'casera':
+                        $prompt .= "Receta casera.";
+                        break;
+                    case 'rapida':
+                        $prompt .= "Receta no saludable.";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (isset($params['dificultad'])) {
+                switch ($params['dificultad']) {
+                    case 'facil':
+                        $prompt .= "Receta sencilla y rapida.";
+                        break;
+                    case 'media':
+                        $prompt .= "Receta normal y elaborada.";
+                        break;
+                    case 'dificil':
+                        $prompt .= "Receta dificil bastante elaborada.";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
 
             //log prompt into channel custom
             Log::channel('custom')->info($prompt);

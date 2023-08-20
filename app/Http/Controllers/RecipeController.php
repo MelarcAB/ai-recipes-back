@@ -88,8 +88,13 @@ class RecipeController extends Controller
             // $recipe_type = "saludable";
             $prompt = "Ingredientes disponibles: $ingredients_list";
 
+            //if isset arr 'params' in request
+            $params = [];
+            if (isset($request->params)) {
+                $params = $request->params;
+            }
 
-            $response = $open_service->callGpt($prompt);
+            $response = $open_service->callGpt($prompt, $params);
             //pasar de string a json
             $response = json_decode($response, true);
 
