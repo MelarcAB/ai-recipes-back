@@ -46,19 +46,19 @@ class Tests extends Command
         if (!File::exists($destinationPath)) {
             File::makeDirectory($destinationPath, 0777, true, true);
         }
+        File::cleanDirectory($destinationPath);
 
-        // Cliente HTTP para hacer la solicitud y descargar la imagen
         $client = new Client();
 
         foreach ($ingredientes as $ingredient) {
             $this->info($ingredient->name);
 
             try {
-                // Obtener la URL de la imagen del ingrediente
                 $imageUrl = $ingredient->image;
 
-                // Crear una extensión de archivo basada en la URL de la imagen
-                $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
+                // Crear una extensión de archivo basada en la URL de la imagen // si no tiene extensión se guarda sin extensión
+                $extension = pathinfo($imageUrl, PATHINFO_EXTENSION) ?: '';
+
 
                 // Generar el nombre del archivo basado en el slug del ingrediente
                 $filename = Str::slug($ingredient->name) . '.' . $extension;
@@ -70,7 +70,7 @@ class Tests extends Command
                 $response = $client->get($imageUrl, ['sink' => $filePath]);
 
                 if ($response->getStatusCode() == 200) {
-                    $this->info("Imagen descargada y guardada en: " . $filePath);
+                    $this->info("Imagen " . $ingredient->name . " descargada y guardada en: " . $filePath);
                 } else {
                     $this->error("Error al descargar la imagen para: " . $ingredient->name);
                 }

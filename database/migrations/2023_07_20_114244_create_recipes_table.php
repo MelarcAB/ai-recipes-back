@@ -24,7 +24,7 @@ return new class extends Migration
             //text ingredients
             $table->text('instructions')->nullable();
             //cantidades quantity
-            $table->string('quantity')->nullable();
+            $table->text('quantity')->nullable();
             //string
 
             //slug
