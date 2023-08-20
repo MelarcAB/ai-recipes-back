@@ -114,6 +114,14 @@ class RecipeController extends Controller
             $recipe->steps = json_encode($response['instructions']);
             $recipe->quantity = $response['ingredients'];
 
+            //if isset arr 'params' in request
+            if (isset($params['tipo'])) {
+                $recipe->type = $params['tipo'];
+            }
+            if (isset($params['dificultad'])) {
+                $recipe->difficulty = $params['dificultad'];
+            }
+
             $recipe->save();
 
             //asignar ingredientes

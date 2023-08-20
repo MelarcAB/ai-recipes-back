@@ -27,6 +27,14 @@ return new class extends Migration
             $table->text('quantity')->nullable();
             //string
 
+            /**
+             * marc.arino
+             * 20/08/2023
+             * añado campos para guardar los filtros principales (tipo y dificultad)
+             */
+            $table->string('type')->nullable();
+            $table->string('difficulty')->nullable();
+
             //slug
             $table->string('slug')->unique();
             //soft delete
