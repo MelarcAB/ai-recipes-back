@@ -68,10 +68,7 @@ class RecipeController extends Controller
     {
         try {
             // Validaciones
-
             $user = $request->user();
-
-            //validar si el usuario tiene token de openai
             if (!$user->open_ai_token) {
                 return response()->json([
                     'message' => "¡No se puede generar la receta porque el usuario no tiene token de OpenAI!",
@@ -80,9 +77,7 @@ class RecipeController extends Controller
             }
 
             $token_openai = $user->open_ai_token;
-
             $ingredients = $request->ingredients;
-
             // Preparar prompt
             $ingredients_list = "";
             foreach ($ingredients as $ingredient) {
@@ -90,8 +85,9 @@ class RecipeController extends Controller
             }
 
             $open_service = new OpenAiService($token_openai);
-            $recipe_type = "saludable";
-            $prompt = "Receta de cocina $recipe_type con los siguientes ingredientes: $ingredients_list";
+            // $recipe_type = "saludable";
+            $prompt = "Ingredientes disponibles: $ingredients_list";
+
 
             $response = $open_service->callGpt($prompt);
             //pasar de string a json
