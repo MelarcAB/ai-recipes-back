@@ -177,6 +177,13 @@ class RecipeController extends Controller
     {
         //validar que lleva el slug de una receta y que la misma pertenece al usuario
         try {
+
+            //validar que exista slug usando validate
+            $request->validate([
+                'slug' => 'required|exists:recipes,slug',
+            ]);
+
+
             $user = $request->user();
             $recipe = Recipe::where('slug', $request->slug)->firstOrFail();
 
