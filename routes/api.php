@@ -17,6 +17,7 @@ Route::resource('ingredients', 'App\Http\Controllers\IngredientsController')->mi
 
 //recipecontroller post generateRecipe
 Route::post('generate-recipe', 'App\Http\Controllers\RecipeController@generateRecipe')->middleware('auth:api');
+Route::post('generate-alternative', 'App\Http\Controllers\RecipeController@generateAlternative')->middleware('auth:api');
 
 
 Route::post('register', 'App\Http\Controllers\Auth\AuthController@register')->name('register');

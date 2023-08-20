@@ -75,6 +75,9 @@ class OpenAiService
                         break;
                 }
             }
+            if (isset($params['alternative'])) {
+                $prompt .= "Receta DISTINTA de " . $params['alternative'] . ".";
+            }
 
 
 

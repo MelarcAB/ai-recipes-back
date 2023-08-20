@@ -173,6 +173,114 @@ class RecipeController extends Controller
 
 
 
+    function generateAlternative(Request $request)
+    {
+        //validar que lleva el slug de una receta y que la misma pertenece al usuario
+        try {
+            $user = $request->user();
+            $recipe = Recipe::where('slug', $request->slug)->firstOrFail();
+
+            // check if the recipe belongs to the user
+            if ($recipe->user_id !== $user->id) {
+                return response()->json(['message' => 'Unauthorized'], 401);
+            }
+
+            // Validaciones
+            if (!$user->open_ai_token) {
+                return response()->json([
+                    'message' => "¡No se puede generar la receta porque el usuario no tiene token de OpenAI!",
+                    'error' => "¡No se puede generar la receta porque el usuario no tiene token de OpenAI!"
+                ], 409);
+            }
+
+            $token_openai = $user->open_ai_token;
+            $ingredients = $recipe->ingredients;
+            // Preparar prompt
+            $ingredients_list = "";
+            foreach ($ingredients as $ingredient) {
+                $ingredients_list .= $ingredient['name_es'] . ", ";
+            }
+
+            $open_service = new OpenAiService($token_openai);
+            // $recipe_type = "saludable";
+            $prompt = "Ingredientes disponibles: $ingredients_list";
+
+
+            /**
+             * marc.arino 20/08/2023
+             * se debería rehacer el sistema de parámetros de la función principal, para que al llamar
+             * a la función de generar receta, se le pasen los parámetros de la receta original
+             *  type y difficulty estarán guardados en la receta, asi que de allí se podria sacar
+             * Por ahora se dejará vacio solo con el param de alternative
+             */
+            $params = [
+                'alternative' => $recipe->name
+            ];
+
+            $response = $open_service->callGpt($prompt, $params);
+            //pasar de string a json
+            $response = json_decode($response, true);
+
+            //validar si response tiene name, nutritional_values, ingredients, instructions
+            if (!isset($response['name']) || !isset($response['nutritional_values']) || !isset($response['ingredients']) || !isset($response['instructions'])) {
+                return response()->json([
+                    'message' => '¡Error generando receta!',
+                    'error' => '¡Error generando receta!',
+                ], 409);
+            }
+
+            //guardar receta
+            $recipe = new Recipe();
+            $recipe->user_id = $user->id;
+            $recipe->name = $response['name'];
+            $recipe->slug = SlugGenerator::generateUniqueSlug(Recipe::class, $recipe->name);
+            $recipe->steps = json_encode($response['instructions']);
+            $recipe->quantity = $response['ingredients'];
+            $recipe->save();
+
+            //asignar ingredientes
+            foreach ($ingredients as $ingredient) {
+                try {
+                    $ingredient = Ingredients::where('name', $ingredient['name'])->firstOrFail();
+                    $recipe->ingredients()->attach($ingredient->id);
+                } catch (\Exception $e) {
+                    continue;
+                }
+            }
+
+            try {
+                //generar la imagen, guardarla en el servidor y guardar la ruta en la receta
+                $image = $open_service->callDalle($recipe->name);
+                if ($image) {
+                    $client = new Client();
+                    $response = $client->get($image);
+
+                    if ($response->getStatusCode() == 200) {
+                        $filename = 'images/' . ($recipe->slug) . '_' . time() . '.jpg';
+                        // Usa el sistema de archivos de Laravel para guardar la imagen en el disco 'public'
+                        Storage::disk('public')->put($filename, $response->getBody());
+
+                        // Actualiza la propiedad 'image' del objeto $recipe
+                        $recipe->image = 'storage/' . $filename;
+                    }
+                    $recipe->save();
+                }
+            } catch (\Exception $e) {
+                Log::error($e->getMessage());
+            }
+
+            return response()->json([
+                'message' => '¡Receta generada correctamente!',
+                'recipe' => new RecipeResource($recipe),
+                'ingredients' => $ingredients,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => '¡Error al intentar generar la receta!',
+                'error' => $e->getMessage(),
+            ], 409);
+        }
+    }
 
     public function show(Request $request, $slug)
     {
