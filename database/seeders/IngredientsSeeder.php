@@ -51,6 +51,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Sal',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Salt'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://ark.wiki.gg/images/b/bd/Raw_Salt.png'
         ]);
 
         Ingredients::create([
@@ -58,6 +59,16 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pimienta negra',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Black pepper'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://nectarfruit.es/wp-content/uploads/2022/02/10058-pimienta-negra-de-penja-en-grano-80g-terre-exotique-2.jpg'
+
+        ]);
+        Ingredients::create([
+            'name' => 'Parsley',
+            'name_es' => 'Perejil',
+            'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Parsley'),
+            'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://images.vexels.com/media/users/3/149069/isolated/lists/057459bfe5e9abca3770d23188059cbf-ilustracion-de-hierba-de-perejil-de-jardin.png'
+
         ]);
 
         Ingredients::create([
@@ -65,6 +76,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Ajo en polvo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Garlic powder'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5cc6eb30acead5eb9a2.png'
+
         ]);
 
         Ingredients::create([
@@ -72,6 +85,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Comino',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cumin'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://m.media-amazon.com/images/I/71QQKUmYxoL._UC256,256_CACC,256,256_.jpg'
+
         ]);
 
         Ingredients::create([
@@ -79,6 +94,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pimentón',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Paprika'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/00033844001681/a8b3b14d830c43acaf00c7d0d5ad3430_large.png&width=256&type=webp&quality=80'
+
         ]);
 
         Ingredients::create([
@@ -86,6 +103,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Canela',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cinnamon'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5cc6eb30acead5eb9a5'
+
         ]);
 
         Ingredients::create([
@@ -93,6 +112,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cúrcuma',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Turmeric'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://vizananutrition.com/wp-content/uploads/2019/09/modAntioxidante.png'
+
         ]);
 
         Ingredients::create([
@@ -100,6 +121,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Jengibre',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Ginger'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://www.mejororganico.com/web/image/product.template/53/image_256'
+
         ]);
 
         Ingredients::create([
@@ -107,6 +130,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Nuez moscada',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Nutmeg'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://m.media-amazon.com/images/I/71NqVviE6nL._AC_UF1000,1000_QL80_.jpg'
+
         ]);
 
         Ingredients::create([
@@ -114,6 +139,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Orégano',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Oregano'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/00052100002729/f89b874501e8c4062b4617c8b7fa9c13_large.png&width=256&type=webp&quality=80'
+
         ]);
 
         Ingredients::create([
@@ -121,6 +148,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Tomillo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Thyme'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://infraganti.net/wp-content/uploads/2016/12/tomillo.jpg'
+
         ]);
 
         Ingredients::create([
@@ -128,20 +157,19 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Romero',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Rosemary'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://i1.adis.ws/i/Brakes/113877_1?$pdp-mobile$&img404=image-not-available&v=1&locale=en-gb'
+
         ]);
 
-        Ingredients::create([
-            'name' => 'Parsley',
-            'name_es' => 'Perejil',
-            'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Parsley'),
-            'ingredient_type_id' => $ingredient_type_spices->id,
-        ]);
+
 
         Ingredients::create([
             'name' => 'Cayenne pepper',
             'name_es' => 'Pimienta de cayena',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cayenne pepper'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://m.media-amazon.com/images/I/91kjPSJKdPL._AC_SY200_QL15_.jpg'
+
         ]);
 
         Ingredients::create([
@@ -149,13 +177,24 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Hojas de laurel',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Bay leaves'),
             'ingredient_type_id' => $ingredient_type_spices->id,
+            'image' => 'https://lasrecetasdeemma.es/foolygyl/laurel-674504_640.jpg'
+
         ]);
     }
+
 
     function insertGrains()
     {
         // Buscar el ingredient type de granos
         $ingredient_type_grains = IngredientType::where('slug', 'grains')->first();
+
+        Ingredients::create([
+            'name' => 'Spaghetti',
+            'name_es' => 'Espaguetis',
+            'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Spaghetti'),
+            'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://media.istockphoto.com/id/1432398900/es/foto/espaguetis-crudos-aislados-sobre-un-fondo-blanco-pasta-cruda.jpg?s=170667a&w=0&k=20&c=TC3xmGuklo0vDWlfqa0wx15jWOGTZiTkyJn-JxnJAwk='
+        ]);
 
         // Crear ingredientes de granos
         Ingredients::create([
@@ -163,6 +202,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Arroz',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Rice'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb6aa'
         ]);
 
         Ingredients::create([
@@ -170,6 +210,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Quinoa',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Quinoa'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://c-pi.niceshops.com/upload/image/product/large/default/55227_7e03d964.256x256.jpg'
         ]);
 
         Ingredients::create([
@@ -177,6 +218,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Avena',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Oats'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://c-pi.niceshops.com/upload/image/product/large/default/55227_7e03d964.256x256.jpg'
+
         ]);
 
         Ingredients::create([
@@ -184,6 +227,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Harina de trigo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Wheat flour'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://es.yamatonoodle.com/wp-content/uploads/2021/08/6-2.jpg'
+
         ]);
 
         Ingredients::create([
@@ -191,6 +236,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Harina de maíz',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cornmeal'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-harina-de-maiz.jpg'
         ]);
 
         Ingredients::create([
@@ -198,6 +244,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cebada',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Barley'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://lasjarasonline.com/wp-content/uploads/2015/07/products-cebada-2-carreras4-300x300.jpg'
         ]);
 
         Ingredients::create([
@@ -205,6 +252,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Trigo sarraceno',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Buckwheat'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://www.elamasadero.com/1400-large_default/granos-de-trigo-panificable-ecologico-800-g-.jpg'
         ]);
 
         Ingredients::create([
@@ -212,6 +260,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cuscús',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Couscous'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://bigoven-res.cloudinary.com/image/upload/d_recipe-no-image.jpg,t_recipe-256/creamy-couscous-parmesan-05f5a8.jpg'
         ]);
 
         Ingredients::create([
@@ -219,6 +268,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Mijo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Millet'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://m.media-amazon.com/images/I/715fgt84VDL._UC256,256_CACC,256,256_.jpg'
         ]);
 
         Ingredients::create([
@@ -226,6 +276,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Bulgur',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Bulgur'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://www.tokfood.com/image/cache/catalog/products/miras-coarse-bulgur-1kg-26919-1-256x256.jpg'
         ]);
 
         Ingredients::create([
@@ -233,6 +284,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Harina de centeno',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Rye flour'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb6e0.png'
         ]);
 
         Ingredients::create([
@@ -240,6 +292,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Harina de espelta',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Spelt flour'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://c-va.niceshops.com/upload/image/product/large/default/60122_6bc44420.256x256.jpg'
         ]);
 
         Ingredients::create([
@@ -247,6 +300,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Tortillas de maíz',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Corn tortillas'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://quecarta.com/uploads/2021/07/20/222502771852.256x256.png'
         ]);
 
         Ingredients::create([
@@ -254,6 +308,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Pan integral',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Whole wheat bread'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://i.pinimg.com/474x/8d/05/8a/8d058a7f8f7950c1dcacc46255f3cb40.jpg'
         ]);
 
         Ingredients::create([
@@ -261,6 +316,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Arroz integral',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Brown rice'),
             'ingredient_type_id' => $ingredient_type_grains->id,
+            'image' => 'https://okdiario.com/img/recetas/2017/02/19/arroz-integral-al-horno-facil.jpg'
         ]);
     }
 
@@ -276,6 +332,15 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Leche',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Milk'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb680'
+        ]);
+        //huevos
+        Ingredients::create([
+            'name' => 'Eggs',
+            'name_es' => 'Huevos',
+            'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Eggs'),
+            'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684703547487/29dff1ceb2227f220a258462f73d7dab_large.png&width=256&type=webp&quality=80'
         ]);
 
         Ingredients::create([
@@ -283,6 +348,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb5fd.png'
         ]);
 
         Ingredients::create([
@@ -290,6 +356,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Yogur',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Yogurt'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb654'
         ]);
 
         Ingredients::create([
@@ -297,6 +364,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Mantequilla',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Butter'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b58d6eb30acead5eb7f2.png'
         ]);
 
         Ingredients::create([
@@ -304,13 +372,15 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Crema agria',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Sour cream'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/00071700280818/e3c815555e47c1e77934a18179c3cf34_large.png&width=256&type=webp&quality=80'
         ]);
 
         Ingredients::create([
             'name' => 'Cream cheese',
-            'name_es' => 'Queso crema',
+            'name_es' => 'Queso crema(philadelphia)',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cream cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/00021000000142/6ad86237fe471e45a07a4ab48a63b40c_large.png&width=256&type=webp&quality=80'
         ]);
 
         Ingredients::create([
@@ -318,6 +388,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Crema de batir',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Whipping cream'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://images.rappi.com.mx/products/981010606-1619010701257.png?d=136x136&e=webp'
         ]);
 
         Ingredients::create([
@@ -325,6 +396,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Leche condensada',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Condensed milk'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://static.toiimg.com/thumb/53222548.cms?imgsize=214293&width=800&height=800'
         ]);
 
         Ingredients::create([
@@ -332,6 +404,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Leche evaporada',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Evaporated milk'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://hellogo.com.mx/cdn/shop/products/977085016-1580930607381.png?v=1607387481'
         ]);
 
         Ingredients::create([
@@ -339,6 +412,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso mozzarella',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Mozzarella cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://img.freepik.com/fotos-premium/queso-mozzarella-bolitas-vista-arriba-fondo-blanco-aislado_323569-240.jpg'
+
         ]);
 
         Ingredients::create([
@@ -346,6 +421,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso cheddar',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cheddar cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://comercialalias.com/1337-thickbox_default/lonchas-queso-gouda.jpg'
         ]);
 
         Ingredients::create([
@@ -353,6 +429,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso parmesano',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Parmesan cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://www.foodexplore.com/media/catalog/product/cache/c22598b710736df84a98d38701ea0335/p/a/parmigiano-reggiano-24-mesi-300g.jpg'
         ]);
 
         Ingredients::create([
@@ -360,6 +437,8 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso gouda',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Gouda cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://comercialalias.com/1337-thickbox_default/lonchas-queso-gouda.jpg'
+
         ]);
 
         Ingredients::create([
@@ -367,6 +446,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Yogur griego',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Greek yogurt'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://res.cloudinary.com/estebandiaz/image/upload/w_256,f_auto/cocinario-beta-foods/5f22b5606eb30acead5eb659'
         ]);
 
         Ingredients::create([
@@ -374,6 +454,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso cottage',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cottage cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://cheesemaking.com/cdn/shop/products/cottage-cheese-1_grande.jpg?v=1529434175'
         ]);
 
         Ingredients::create([
@@ -381,6 +462,9 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Queso ricotta',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Ricotta cheese'),
             'ingredient_type_id' => $ingredient_type_dairy->id,
+            'image' => 'https://www.wikihow.com/images_en/thumb/1/14/Make-Ricotta-Cheese-Step-13-Version-2.jpg/v4-460px-Make-Ricotta-Cheese-Step-13-Version-2.jpg.webp'
+
+
         ]);
     }
 
@@ -393,12 +477,14 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de salmón',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Salmon fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://www.supermercadosmas.com/media/catalog/product/cache/d91bc430dbe2e3d899436802c7aa5233/i/m/import_catalog_images_33_13_331339_v7.jpg'
         ]);
         Ingredients::create([
             'name' => 'Tuna steak',
             'name_es' => 'Filete de atún',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Tuna steak'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://media.istockphoto.com/id/1301917262/es/foto/filetes-de-filete-de-at%C3%BAn-fresco-adornados-con-perejil-aislado-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=FyD32qBXi_bG5serU_5Lm9qGXcP1zWUx8L1lI9i9lfg='
         ]);
 
         Ingredients::create([
@@ -406,6 +492,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de bacalao',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cod fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://www.peixacasa.cat/wp-content/uploads/2020/06/filet-de-bacall%C3%A0-fresc-peix-a-casa.jpg'
         ]);
 
         Ingredients::create([
@@ -413,6 +500,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de pez espada',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Swordfish steak'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://www.mariscosapolo.com/wp-content/uploads/2022/04/2000090-pez-espada-chef.jpg'
         ]);
 
         Ingredients::create([
@@ -420,6 +508,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de caballa',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Mackerel fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://llenatudespensa.com/caballa-filete-100-160gr_Id-4565.jpg'
         ]);
 
         Ingredients::create([
@@ -427,6 +516,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de eglefino',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Haddock fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://jetextramar.com/wp-content/uploads/2021/12/280-Filete-de-eglefino-2.jpg'
         ]);
 
         Ingredients::create([
@@ -434,6 +524,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de halibut',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Halibut fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://sweetstuff.in/wp-content/uploads/2020/06/Halibut-Fillet.jpg'
         ]);
 
         Ingredients::create([
@@ -441,6 +532,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de pargo rojo',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Red snapper fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://oceangourmet.com.pa/cdn/shop/products/FILETEDEPARGOROJO.jpg?v=1611439981'
         ]);
 
         Ingredients::create([
@@ -448,6 +540,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Filete de trucha',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Trout fillet'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202206/14/00118251000156____5__600x600.jpg'
         ]);
 
         Ingredients::create([
@@ -455,6 +548,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Sardinas',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Sardines'),
             'ingredient_type_id' => $ingredient_type_fish->id,
+            'image' => 'https://www.pescaderiasalgado.es/wp-content/uploads/2022/01/sardinas-beneficios.jpg'
         ]);
     }
 
@@ -684,6 +778,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Sandía',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Watermelon'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg'
         ]);
 
         Ingredients::create([
@@ -691,6 +786,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Piña',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Pineapple'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
+            'image' => 'https://www.calfruitos.com/fotos/pr_1473_20191202124545.png'
         ]);
 
         Ingredients::create([
@@ -698,7 +794,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Mango',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Mango'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
-            'image' => 'https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg'
+            'image' => 'https://exoticfruitbox.com/wp-content/uploads/2015/10/mango.jpg'
         ]);
 
         Ingredients::create([
@@ -723,7 +819,7 @@ class IngredientsSeeder extends Seeder
             'name_es' => 'Cereza',
             'slug' => SlugGenerator::generateUniqueSlug(Ingredients::class, 'Cherry'),
             'ingredient_type_id' => $ingredient_type_fruit->id,
-            'image' => ''
+            'image' => 'https://www.calfruitos.com/fotos/pr_10_20230705095433.png'
 
         ]);
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ingredients;
 use App\Http\Resources\Ingredients\IngredientResource;
+use Illuminate\Support\Facades\Log;
 
 class IngredientsController extends Controller
 {
@@ -18,6 +19,8 @@ class IngredientsController extends Controller
 
     public function index()
     {
+        //log a custom
+        Log::channel('custom')->info('IngredientsController@index');
         return IngredientResource::collection(Ingredients::all());
     }
 

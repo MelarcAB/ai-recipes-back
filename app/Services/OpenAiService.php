@@ -81,7 +81,6 @@ class OpenAiService
         }
     }
 
-
     public function callDalle($prompt = "")
     {
         try {
